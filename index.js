@@ -1,82 +1,81 @@
-console.log('[¡] iniciando...');
-import {join, dirname, format} from 'path';
-import { createRequire } from 'module';
-import { fileURLToPath } from 'url';
+console.log('[ ℹ️ ] Iniciando...');
+import {join, dirname} from 'path';
+import {createRequire} from 'module';
+import {fileURLToPath} from 'url';
 import {setupMaster, fork} from 'cluster';
-import { watchFile, unwatchFile } from 'fs';
-import 'cfonts';
-import { createInterface } from 'readline';
-import 'yargs';
-import { start } from 'repl';
-import { exec } from 'child_process';
+import {watchFile, unwatchFile} from 'fs';
+import cfonts from 'cfonts';
+import {createInterface} from 'readline';
 import yargs from 'yargs';
-import { url } from 'inspector';
-const dirname = _dirname(fileURLToPath(import.meta.url))
-const require  = createRequire={__dirname}
-const {name, author} = require(join(__dirname, './package.json'))
-const {say} = createInterface(process.stdin, process.stdout);
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const require = createRequire(__dirname);
+const {name, author} = require(join(__dirname, './package.json'));
+const {say} = cfonts;
+const rl = createInterface(process.stdin, process.stdout);
 
-say('GOGETA/inbot', {
-    font: 'chrome',
-    aligh: 'center',
-    gradient: ['red', 'magenta']});
-say('bot creado por santiyt65',{
+say('GOGETA\nBot', {
+  font: 'chrome',
+  align: 'center',
+  gradient: ['red', 'magenta']});
+say(`Bot creado por santiyt65`, {
+  font: 'console',
+  align: 'center',
+  gradient: ['red', 'magenta']});
+
+let isRunning = false;
+/**
+* Start a js file
+* @param {String} file `path/to/file`
+*/
+function start(file) {
+  if (isRunning) return;
+  isRunning = true;
+  const args = [join(__dirname, file), ...process.argv.slice(2)];
+
+  /** say('[ ℹ️ ] Escanea el código QR o introduce el código de emparejamiento en WhatsApp.', {
     font: 'console',
     align: 'center',
-    gradient: ['red', 'magneta']})
+    gradient: ['red', 'magenta']}); **/
 
-    jet. isRunnig = false;
-    /** 
-    *start a js File
-    *@param {string} File 'path/to/file'
-    */
-   function start(file) {
-    if (isRunnig) return;
-    isRunnig = true;
-    const args = [join(__dirname,file), ...process.argv.slice(2)]};
-
-    /**say[¡] Escanea el codigo QR o intruce el codigo de emparejamiento de whatsapp.´,{
-       font: 'console',
-       align: 'center',
-       grdient: ['red', 'magenta']}); **/
-
-setupMaster({
+  setupMaster({
     exec: args[0],
     args: args.slice(1)});
-const p = fork();
-p.on('message'), (data) => {
-
+  const p = fork();
+  p.on('message', (data) => {
+    
     console.log('[RECIBIDO]', data);
     switch (data) {
-        case 'reset':
-            p.process.kill();
-            isRunnig = false;
-            start.apply(trhis, arguments);
-            break;
-        case 'uptime':
-            p.send(process.uptime());
-            break;
+      case 'reset':
+        p.process.kill();
+        isRunning = false;
+        start.apply(this, arguments);
+        break;
+      case 'uptime':
+        p.send(process.uptime());
+        break;
     }
-}
-p.on('exit', (_, code) =>{
-    isRunnig = false;
-    console.error('[¡] ocurrio un error inesperado:', code);
+  });
+  p.on('exit', (_, code) => {
+    isRunning = false;
+    console.error('[ ℹ️ ] Ocurrio un error inesperado:', code);
 
     p.process.kill();
-    isRunnig = false;
+    isRunning = false;
     start.apply(this, arguments);
 
     if (process.env.pm_id) {
-        process.exit(1);
-    }else {
-        process.exit();
+      process.exit(1);
+    } else {
+      process.exit();
     }
-})
-const opts = new Object(yargs(process.argv.slice(2))).exitprocess(false).parse();
-if (lopts['test']) {
-    if(url.listenerCount()){
+  });
+  const opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse());
+  if (!opts['test']) {
+    if (!rl.listenerCount()) {
+      rl.on('line', (line) => {
         p.emit('message', line.trim());
-    }};
-    {
+      });
+    }
+  }
 }
-start('main.js');
+start('main.js')
