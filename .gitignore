@@ -1,33 +1,16 @@
-# Gradle files
-.gradle/
-build/
+#|  folders  |#
 
-# Local configuration file (sdk path, etc)
-local.properties
+.github
+node_modules
+GogetaSession
+tmp
+jadibts
+pluginpilot
+plugins/supersecretlistener.js
+scr/glx/db/database.json
+datasecret
 
-# Log/OS Files
-*.log
+#|  Files  |#
 
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.apk
-output.json
-
-# IntelliJ
-*.iml
-.idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
-
-# Keystore files
-*.jks
-*.keystore
-
-# Google Services (e.g. APIs or Firebase)
-google-services.json
-
-# Android Profiling
-*.hprof
+package-lock.json
+database.json

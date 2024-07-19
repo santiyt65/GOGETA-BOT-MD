@@ -1,0 +1,41 @@
+{
+    "name" : "GOGEGA-BOT",
+      "website": "https://github.com/santiyt65",
+      "description": "sucribite a santiyt65- BOT-MD",
+      "repository": "",
+      "logo": "",
+      "url de exito": "",
+      "palabras clave": [
+        "node.js",
+        "heroe",
+        "BOT",
+        "robots",
+        "BOT",
+        "español",
+        "whatsApp",
+        "Termux",
+        "sombra",
+        "multi dispositivo",
+        "maryland",
+        "robot de whatsApp",
+        "oficial",
+        "whatsApp-BOT",
+        "el robot GOGETA",
+        "El robot GOGETA",
+        "el robot GOGETA"],
+    "IMAGEN": "heroku/nodejs",
+    "paquetes de construccion": [
+      {
+        "url":"heroku/nodejs"
+      },
+      {
+        "url":""
+      },
+      {
+        "url":""
+      },
+      {
+        "url":""
+      }
+    ]
+  }
