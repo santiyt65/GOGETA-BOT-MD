@@ -2,29 +2,33 @@ import {watchFile, unwatchFile} from 'fs';
 import chalk from 'chalk';
 import {fileURLToPath} from 'url';
 import fs from 'fs'; 
+import cheerio from 'cheerio';
+import fetch from 'node-fetch';
+import axios from 'axios';
 import moment from 'moment-timezone';
 
 global.botnumber = ""
 global.confirmCode = ""
 
 global.owner = [
-  ['542604604584', 'GOGETA - CREADOR', true],
+  ['542604604584', '👑 GOGETA - CREADOR  👑', true],
+ 
 ];
 
-global.suittag = ['542604811354'];
-global.prems = ['542604673691'];
+global.suittag = ['542604604584'];
+global.prems = ['542604811354'];
 
 global.packname = 'Sticker';
-global.author = 'GOGETA-BOT';
-global.wm = 'GOGETA-BOT';
-global.titulowm = 'GOGETA-BOT';
-global.titulowm2 = `GOGETA-BOT`
-global.igfg = 'GOGETA-BOT';
+global.author = 'GOGETA - BOT';
+global.wm = 'GOGETA - BOT';
+global.titulowm = 'GOGETA - BOT';
+global.titulowm2 = `GOGETA - BOT`
+global.igfg = 'GOGETA - BOT';
 global.wait = '*_[ ⏳ ] Cargando..._*';
 
 global.imagen1 = fs.readFileSync('./Menu2.jpg');
 global.imagen2 = fs.readFileSync('./src/nuevobot.jpg');
-global.imagen3 = fs.readFileSync('./src/Pre Bot Publi');
+global.imagen3 = fs.readFileSync('./src/Pre Bot Publi.png');
 global.imagen4 = fs.readFileSync('./Menu.png');
 global.imagen5 = fs.readFileSync('./src/+18.jpg');
 global.imagen6 = fs.readFileSync('./Menu3.png');
@@ -44,11 +48,12 @@ global.mes = d.toLocaleDateString('es', {month: 'long'});
 global.año = d.toLocaleDateString('es', {year: 'numeric'});
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
 //* ****************************
-global.wm2 = `${dia} ${fecha}\nGOGETA -  BOT`;
-global.gt = 'GOGETA-BOT';
-global.mysticbot = 'GOGETA-BOT';
+global.wm2 = `${dia} ${fecha}\nThe Mystic - Bot`;
+global.gt = 'The Mystic - Bot';
+global.mysticbot = 'The Mystic - Bot';
 global.md = 'https://github.com/santiyt65/GOGETA-BOT';
 global.GOGETABOT = 'https://github.com/santiyt65/GOGETA-BOT';
+global.canal = 'https://whatsapp.com/channel/0029VafRn6UKmCPJ6tthiV0R';
 global.waitt = '*_[ ⏳ ] Cargando..._*';
 global.waittt = '*_[ ⏳ ] Cargando..._*';
 global.waitttt = '*_[ ⏳ ] Cargando..._*';
@@ -67,8 +72,8 @@ global.htki = '*⭑•̩̩͙⊱•••• ☪*';
 global.htka = '*☪ ••••̩̩͙⊰•⭑*';
 global.comienzo = '• • ◕◕════';
 global.fin = '════◕◕ • •';
-global.botdate = `*[ 📅 ] Fecha:*  ${moment.tz('America/ARGENTINA_CITY').format('DD/MM/YY')}`;
-global.bottime = `*[ ⏳ ] Hora:* ${moment.tz('America/ARGENTINA_CITY').format('HH:mm:ss')}`;
+global.botdate = `*[ 📅 ] Fecha:*  ${moment.tz('America/Mexico_City').format('DD/MM/YY')}`;
+global.bottime = `*[ ⏳ ] Hora:* ${moment.tz('America/Mexico_City').format('HH:mm:ss')}`;
 global.fgif = {key: {participant: '0@s.whatsapp.net'}, message: {'videoMessage': {'title': wm, 'h': `Hmm`, 'seconds': '999999999', 'gifPlayback': 'true', 'caption': bottime, 'jpegThumbnail': fs.readFileSync('./Menu.png')}}};
 global.multiplier = 99;
 global.flaaa = [
