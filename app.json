@@ -2,8 +2,8 @@
     "name" : "GOGEGA-BOT",
       "website": "https://github.com/santiyt65",
       "description": "sucribite a santiyt65- BOT-MD",
-      "repository": "",
-      "logo": "",
+      "repository": "https://github.com/santiyt65/GOGETA-BOT",
+      "logo":"https://github.com/santiyt65/GOGETA-BOT/blob/main/Menu.jpg",
       "url de exito": "",
       "palabras clave": [
         "node.js",
@@ -38,4 +38,5 @@
         "url":"https://github.com/santiyt65/GOGETA-BOT/blob/main/src/pictures/heroku-icon.jpg"
       }
     ]
-  }
+  }  
+
