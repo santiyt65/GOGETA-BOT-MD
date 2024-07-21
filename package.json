@@ -1,7 +1,7 @@
 {
     "string": ["GOGETA-BOT"],
     "version": "1.0.0",
-    "description":"",
+    "description":"Subs. al canal de YT SANTI YT",
     "main": "index.js",
     "type": "module",
     "directories": {
