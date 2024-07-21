@@ -2,9 +2,6 @@ import {watchFile, unwatchFile} from 'fs';
 import chalk from 'chalk';
 import {fileURLToPath} from 'url';
 import fs from 'fs'; 
-import cheerio from 'cheerio';
-import fetch from 'node-fetch';
-import axios from 'axios';
 import moment from 'moment-timezone';
 
 global.botnumber = ""
@@ -14,7 +11,7 @@ global.owner = [
   ['542604604584', 'GOGETA - CREADOR', true],
 ];
 
-global.suittag = ['542606811354'];
+global.suittag = ['542604811354'];
 global.prems = ['542604673691'];
 
 global.packname = 'Sticker';
