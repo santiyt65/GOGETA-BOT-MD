@@ -12,7 +12,7 @@ const handler = async (m, {
   const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
   const tradutor = _translate.plugins.random_navidad
 
-  const res = (await axios.get(``)).data;
+  const res = (await axios.get(`https://github.com/santiyt65/GOGETA-BOT/blob/main/src/JSON/navidad.json`)).data;
   const mystic = await res[Math.floor(res.length * Math.random())];
   conn.sendMessage(m.chat, {
     image: {
@@ -22,7 +22,7 @@ const handler = async (m, {
   }, {
     quoted: m,
   });
-  // conn.sendButton(m.chat, `_Navidad 🧑‍🎄_`, author, mystic, [['🔄 𝚂𝙸𝙶𝚄𝙸𝙴𝙽𝚃𝙴 🔄', `${usedPrefix + command}`]], m)
+  // conn.sendButton(m.chat, `_Navidad 🧑‍🎄_`, author, GOGETA, [['🔄 𝚂𝙸𝙶𝚄𝙸𝙴𝙽𝚃𝙴 🔄', `${usedPrefix + command}`]], m)
 };
 handler.help = ['navidad'];
 handler.tags = ['internet'];

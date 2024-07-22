@@ -5,7 +5,7 @@ const handler = async (m, {
   usedPrefix,
   command,
 }) => {
-  fetch('').then((res) => res.text()).then((body) => {
+  fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/kpop/blackpink.txt').then((res) => res.text()).then((body) => {
     const randomkpop = body.split('\n');
     const randomkpopx = randomkpop[Math.floor(Math.random() * randomkpop.length)];
     conn.sendMessage(m.chat, {
