@@ -11,7 +11,7 @@ global.botnumber = ""
 global.confirmCode = ""
 
 global.owner = [
-  ['542604604584', '👑 GOGETA - CREADOR  👑', true],
+  ['542604200949', '👑 GOGETA - CREADOR  👑', true],
  
 ];
 
@@ -50,7 +50,7 @@ global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', s
 //* ****************************
 global.wm2 = `${dia} ${fecha}\nGogeta - Bot`;
 global.gt = 'GOGETA - BOT';
-global.mysticbot = 'GOGETA - BOT';
+global.GOGETABOT = 'GOGETA - BOT';
 global.md = 'https://github.com/santiyt65/GOGETA-BOT';
 global.GOGETABOT = 'https://github.com/santiyt65/GOGETA-BOT';
 global.canal = 'https://whatsapp.com/channel/0029VafRn6UKmCPJ6tthiV0R';
