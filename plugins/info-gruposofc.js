@@ -11,19 +11,19 @@ const handler = async (m, {conn, usedPrefix}) => {
     const text = `${tradutor.texto1[0]}
   
   ${tradutor.texto1[1]}
-  1.- 
+  1.- https://chat.whatsapp.com/B989oWTkzPbFsmZLa6xjCE
   
-  2.- 
+  2.- https://chat.whatsapp.com/B989oWTkzPbFsmZLa6xjCE
   
-  3.- 
+  3.- https://chat.whatsapp.com/B989oWTkzPbFsmZLa6xjCE
   
-  4.- 
+  4.- https://chat.whatsapp.com/B989oWTkzPbFsmZLa6xjCE
   
-  > MoonLight Team OFC :
+  > GOGETA - BOT :
   
-  1.- 
+  1.- https://chat.whatsapp.com/B989oWTkzPbFsmZLa6xjCE
   
-  2.- `.trim();
+  2.- https://chat.whatsapp.com/B989oWTkzPbFsmZLa6xjCE `.trim();
     const buttonMessage= {
       'document': {url: ``},
       'mimetype': `application/${document}`,

@@ -8,7 +8,7 @@ const handler = async (m, { conn, args, usedPrefix }) => {
    const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
    const tradutor = _translate.plugins.info_repositorio
 
-   const res = await fetch('');
+   const res = await fetch('https://github.com/santiyt65/GOGETA-BOT');
    const json = await res.json();
    let txt = `${tradutor.texto1[0]}\n\n`;
    txt += `${tradutor.texto1[1]} ${json?.name || tradutor.texto1[2]}\n\n`;
