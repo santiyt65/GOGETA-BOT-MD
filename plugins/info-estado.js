@@ -33,7 +33,7 @@ const handler = async (m, { conn, usedPrefix }) => {
 
   ${tradutor.texto1[1]} santiyt65
   ${tradutor.texto1[2]} +542604200949
-  ${tradutor.texto1[3]} paypal.me/
+  ${tradutor.texto1[3]} paypal.me/ElbaMoreno211
 
   ${tradutor.texto1[4]} ${rtime}
   ${tradutor.texto1[5]} ${uptime}
