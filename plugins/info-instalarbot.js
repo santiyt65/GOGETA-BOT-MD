@@ -20,13 +20,13 @@ const handler = async (m, {conn, usedPrefix}) => {
         'forwardingScore': 200,
         'isForwarded': true,
         'externalAdReply': {
-          'mediaUrl': '',
+          'mediaUrl': 'https://github.com/santiyt65/GOGETA-BOT',
           'mediaType': 2,
           'previewType': 'pdf',
           'title': tradutor.texto2,
           'body': wm,
           'thumbnail': imagen1,
-          'sourceUrl': ''}},
+          'sourceUrl': 'https://github.com/santiyt65/GOGETA-BOT'}},
       'caption': text,
       'footer': wm,
       // 'buttons':[

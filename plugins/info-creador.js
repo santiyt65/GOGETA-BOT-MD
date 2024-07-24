@@ -37,7 +37,7 @@ const handler = async (m, {conn, usedPrefix}) => {
     
     ${tradutor.texto1[13]}`.trim();
     const buttonMessage= {
-      'document': {url: ``},
+      'document': {url: `https://github.com/santiyt65/GOGETA-BOT`},
       'mimetype': `application/${document}`,
       'fileName': `${tradutor.texto2[0]}`,
       'fileLength': 99999999999999,
@@ -46,13 +46,13 @@ const handler = async (m, {conn, usedPrefix}) => {
         'forwardingScore': 200,
         'isForwarded': true,
         'externalAdReply': {
-          'mediaUrl': '',
+          'mediaUrl': 'https://github.com/santiyt65/GOGETA-BOT',
           'mediaType': 2,
           'previewType': 'pdf',
           'title': tradutor.texto2[1],
           'body': wm,
           'thumbnail': imagen1,
-          'sourceUrl': ''}},
+          'sourceUrl': 'https://github.com/santiyt65/GOGETA-BOT'}},
       'caption': text,
       'footer': wm,
       // 'buttons':[

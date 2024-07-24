@@ -63,7 +63,7 @@ const handler = async (m, { conn, usedPrefix }) => {
   ];
   const document = doc[Math.floor(Math.random() * doc.length)];
   const Message = {
-    document: { url: `` },
+    document: { url: `https://github.com/santiyt65/GOGETA-BOT` },
     mimetype: `application/${document}`,
     fileName: `Documento`,
     fileLength: 99999999999999,
@@ -72,13 +72,13 @@ const handler = async (m, { conn, usedPrefix }) => {
       forwardingScore: 200,
       isForwarded: true,
       externalAdReply: {
-        mediaUrl: "",
+        mediaUrl: "https://github.com/santiyt65/GOGETA-BOT",
         mediaType: 2,
         previewType: "pdf",
         title: "GOGETA-BOT",
         body: tradutor.texto2,
         thumbnail: imagen1,
-        sourceUrl: "",
+        sourceUrl: "https://github.com/santiyt65/GOGETA-BOT",
       },
     },
     caption: info,

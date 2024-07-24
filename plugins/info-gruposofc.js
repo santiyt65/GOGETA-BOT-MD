@@ -25,7 +25,7 @@ const handler = async (m, {conn, usedPrefix}) => {
   
   2.- https://chat.whatsapp.com/B989oWTkzPbFsmZLa6xjCE `.trim();
     const buttonMessage= {
-      'document': {url: ``},
+      'document': {url: `https://github.com/santiyt65/GOGETA-BOT`},
       'mimetype': `application/${document}`,
       'fileName': `${tradutor.texto2}`,
       'fileLength': 99999999999999,
@@ -40,7 +40,7 @@ const handler = async (m, {conn, usedPrefix}) => {
           'title': `${tradutor.texto3}`,
           'body': wm,
           'thumbnail': imagen1,
-          'sourceUrl': ''}},
+          'sourceUrl': 'https://github.com/santiyt65/GOGETA-BOT'}},
       'caption': text,
       'footer': wm,
       'headerType': 6};
