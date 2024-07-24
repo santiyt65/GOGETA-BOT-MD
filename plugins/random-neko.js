@@ -7,7 +7,7 @@ const handler = async (m, {conn, command}) => {
   const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
   const tradutor = _translate.plugins.random_neko
 
-  const ne = await (await fetch('https://github.com/santiyt65/GOGETA-BOT/blob/main/src/JSON/anime-nezuko.json')).text();
+  const ne = await (await fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/anime/neko.txt')).text();
   const nek = ne.split('\n');
   const neko = await nek[Math.floor(Math.random() * nek.length)];
   if (neko == '') throw 'Error';
