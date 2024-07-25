@@ -37,7 +37,7 @@ async function serbot() {
     const connectionOptions = {
       logger: pino({ level: 'silent' }),
       printQRInTerminal: true,
-      browser: ['Ai Hoshino', 'Safari', '2.0.0'],
+      browser: ['GOGETA-BOT', 'Safari', '2.0.0'],
       auth: {
         creds: state.creds,
         keys: makeCacheableSignalKeyStore(state.keys, pino({ level: "fatal" }).child({ level: "fatal" })),
