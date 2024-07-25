@@ -18,7 +18,7 @@ const handler = async (m, { conn, args, usedPrefix }) => {
    txt += `${tradutor.texto1[6]} ${json?.html_url || tradutor.texto1[7]}\n\n`;
    txt += `${json?.forks_count || '-'} ${tradutor.texto1[8]} ${json?.stargazers_count || '-'} ${tradutor.texto1[9]} ${json?.open_issues_count || '-'} ${tradutor.texto1[10]}`;
    txt += `${tradutor.texto1[11]}\n_${usedPrefix}gitclone ${json?.html_url || 'https://github.com/santiyt65/GOGETA-BOT'}_`;
-   await conn.sendMessage(m.chat, { text: txt.trim(), mentions: [...txt.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), contextInfo: { forwardingScore: 9999999, isForwarded: true, mentionedJid: [...txt.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), "externalAdReply": { "showAdAttribution": true, "containsAutoReply": true, "renderLargerThumbnail": true, "title": global.titulowm2, "containsAutoReply": true, "mediaType": 1, "thumbnail": imagen6, "mediaUrl":`https://github.com/santiyt65/GOGETA-BOT`, "sourceUrl": `https://github.com/santiyt65/GOGETA-BOT` } } }, { quoted: m });
+   await conn.sendMessage(m.chat, { text: txt.trim(), mentions: [...txt.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), contextInfo: { forwardingScore: 9999999, isForwarded: true, mentionedJid: [...txt.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), "externalAdReply": { "showAdAttribution": true, "containsAutoReply": true, "renderLargerThumbnail": true, "title": global.titulowm2, "containsAutoReply": true, "mediaType": 1, "thumbnail": imagen6, "mediaUrl":`https://atom.bio/nicolas_santiyt6`, "sourceUrl": `https://atom.bio/nicolas_santiyt6` } } }, { quoted: m });
 };
 handler.command = ['script', 'repositorio', 'repo']
 export default handler;
