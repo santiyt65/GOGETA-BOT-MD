@@ -70,7 +70,7 @@ async function serbot() {
             txt += `│  ✩  *2* : Toque dispositivos vinculados\n`
             txt += `└  ✩  *3* : Escanea este QR\n\n`
             txt += `> *Nota:* Este código QR expira en 30 segundos.`
-        let sendQR = await parentw.sendFile(m.chat, await qrcode.toDataURL(qr, { scale: 8 }), "qrcode.png", txt, m, null, rcanal)
+        let sendQR = await parentw.sendFile(m.chat, await qrcode.toDataURL(qr, { scale: 8 }), "https://whatsapp.com/channel/0029Vak85hc2975JMdlHXT0P", txt, m, null, rcanal)
         
        setTimeout(() => {
          parentw.sendMessage(m.chat, { delete: sendQR.key })
