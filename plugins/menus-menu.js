@@ -143,6 +143,7 @@ ${tradutor.texto1[9]} ${user.premiumTime > 0 ? '✅' : (isPrems ? '✅' : '❌')
   ├❧ _${usedPrefix}suerte
   ├❧ _${usedPrefix}wordfind_
   ├❧ _${usedPrefix}glx_ (RPG Mundo)
+  ❧ _${usedPrefix}violar *<@tag>*_
   ╰───── • ◆ • ─────╯
 
   ${tradutor.texto1[14]}
