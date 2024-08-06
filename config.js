@@ -12,7 +12,8 @@ global.confirmCode = ""
 
 global.owner = [
   ['54 9 260 403-5392', '👑 GOGETA - CREADOR  👑', true],
- 
+  ['54 9 260 467-3691', '👑 GOGETA - CREADOR  👑', true],
+  ['54 9 260 481-1354-', '👑 GOGETA - CREADOR  👑', true],
 ];
 
 global.suittag = ['542604604584'];
