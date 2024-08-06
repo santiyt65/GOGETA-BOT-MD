@@ -11,7 +11,7 @@ global.botnumber = ""
 global.confirmCode = ""
 
 global.owner = [
-  ['54 9 260 420-0949', '👑 GOGETA - CREADOR  👑', true],
+  ['54 9 260 403-5392', '👑 GOGETA - CREADOR  👑', true],
  
 ];
 
