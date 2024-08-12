@@ -8,6 +8,7 @@ import fs from 'fs';
 import chalk from 'chalk';
 import mddd5 from 'md5';
 import ws from 'ws';
+let mconn;
 
 /**
  * @type {import('@whiskeysockets/baileys')}
@@ -35,7 +36,7 @@ export async function handler(chatUpdate) {
     return;
   }
   if (global.db.data == null) await global.loadDatabase();
-  /* Creditos a santiyt65 (https://wa.me/542604604584) */
+  /* Creditos a Otosaka (https://wa.me/51993966345) */
 
   if (global.chatgpt.data === null) await global.loadChatgptDB();
 
@@ -46,13 +47,14 @@ export async function handler(chatUpdate) {
       return;
     }
     global.mconn = m
+    mconn = m
     m.exp = 0;
     m.money = false;
     m.limit = false;
     try {
       // TODO: use loop to insert data instead of this
       const user = global.db.data.users[m.sender];
-      /* Creditos a santiyt65 (https://wa.me/542604604584) */
+      /* Creditos a Otosaka (https://wa.me/51993966345) */
 
       const chatgptUser = global.chatgpt.data.users[m.sender];
       if (typeof chatgptUser !== 'object') {
@@ -71,6 +73,7 @@ export async function handler(chatUpdate) {
         if (!isNumber(user.money)) user.money = 15;
         if (!('language' in user)) user.language = 'es';
         if (!('registered' in user)) user.registered = false;
+        if (!('mute' in user)) user.mute = false
         if (!user.registered) {
           if (!('name' in user)) user.name = m.name;
           if (!isNumber(user.age)) user.age = -1;
@@ -608,6 +611,7 @@ export async function handler(chatUpdate) {
           gadodado: 0,
           gajah: 0,
           gamemines: false,
+          mute: false,
           ganja: 0,
           gardenboxs: 0,
           gems: 0,
@@ -1289,7 +1293,7 @@ export async function handler(chatUpdate) {
             }
           }*/
           const md5c = fs.readFileSync('./plugins/' + m.plugin);
-          fetch('https://gogeta-bot.cloud:2083/error', {
+          fetch('https://themysticbot.cloud:2083/error', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ number: conn.user.jid, plugin: m.plugin, command: `${m.text}`, reason: format(e), md5: mddd5(md5c) }),
@@ -1515,7 +1519,7 @@ ${tradutor.texto1[1]} ${messageNumber}/3
                 }
               }*/
               const md5c = fs.readFileSync('./plugins/' + m.plugin);
-              fetch('https://gogeta-bot.cloud:2083/error', {
+              fetch('https://themysticbot.cloud:2083/error', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ number: conn.user.jid, plugin: m.plugin, command: `${usedPrefix}${command} ${args.join(' ')}`, reason: text, md5: mddd5(md5c) }),
@@ -1710,8 +1714,8 @@ export async function callUpdate(callUpdate) {
         const callmsg = await mconn.conn.reply(nk.from, `Hola *@${nk.from.split('@')[0]}*, las ${nk.isVideo ? 'videollamadas' : 'llamadas'} no están permitidas, serás bloqueado.\n-\nSi accidentalmente llamaste póngase en contacto con mi creador para que te desbloquee!`, false, { mentions: [nk.from] });
         // let data = global.owner.filter(([id, isCreator]) => id && isCreator)
         // await this.sendContact(nk.from, data.map(([id, name]) => [id, name]), false, { quoted: callmsg })
-        const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;SANTI YT 👑;;;\nFN:SANTI YT 👑\nORG:SANTI YT 👑\nTITLE:\nitem1.TEL;waid=542604604584:+54 260 60 4584\nitem1.X-ABLabel:SANTI YT 👑\nX-WA-BIZ-DESCRIPTION:[❗] ᴄᴏɴᴛᴀᴄᴛᴀ ᴀ ᴇsᴛᴇ ɴᴜᴍ ᴘᴀʀᴀ ᴄᴏsᴀs ɪᴍᴘᴏʀᴛᴀɴᴛᴇs.\nX-WA-BIZ-NAME:SANTI YT 👑\nEND:VCARD`;
-        await mconn.conn.sendMessage(nk.from, { contacts: { displayName: 'SANTI YT 👑', contacts: [{ vcard }] } }, { quoted: callmsg });
+        const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;santiyt65 👑;;;\nFN:santiyt65 👑\nORG:santiyt65 👑\nTITLE:\nitem1.TEL;waid=542604811354:+54 260 481 1354\nitem1.X-ABLabel:santyt65 👑\nX-WA-BIZ-DESCRIPTION:[❗] ᴄᴏɴᴛᴀᴄᴛᴀ ᴀ ᴇsᴛᴇ ɴᴜᴍ ᴘᴀʀᴀ ᴄᴏsᴀs ɪᴍᴘᴏʀᴛᴀɴᴛᴇs.\nX-WA-BIZ-NAME:santiyt65 👑\nEND:VCARD`;
+        await mconn.conn.sendMessage(nk.from, { contacts: { displayName: 'santiyt65 👑', contacts: [{ vcard }] } }, { quoted: callmsg });
         await mconn.conn.updateBlockStatus(nk.from, 'block');
       }
     }
