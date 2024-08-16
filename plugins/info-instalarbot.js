@@ -13,7 +13,7 @@ const handler = async (m, {conn, usedPrefix}) => {
     const buttonMessage= {
       'document': {url: ``},
       'mimetype': `application/${document}`,
-      'fileName': `「  𝑯𝒆𝒍𝒍𝒐 𝑾𝒐𝒓𝒍𝒅 」`,
+      'fileName': `「  HELLO MANITO O MANITA 」`,
       'fileLength': 99999999999999,
       'pageCount': 200,
       'contextInfo': {
