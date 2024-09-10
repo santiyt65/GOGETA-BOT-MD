@@ -20,6 +20,9 @@ global.owner = [
 global.suittag = ['542604604584'];
 global.prems = ['542604811354'];
 
+// API
+global.BASE_API_DELIRIUS = "https://deliriusapi-official.vercel.app";
+
 global.packname = 'Sticker';
 global.author = 'GOGETA - BOT';
 global.wm = 'GOGETA - BOT';
