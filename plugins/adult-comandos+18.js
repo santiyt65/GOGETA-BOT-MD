@@ -3,13 +3,13 @@ import fetch from 'node-fetch';
 const handler = async (m, {command, conn}) => {
   const datas = global
     const idioma = datas.db.data.users[m.sender].language
-    const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
+    const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
     const tradutor = _translate.plugins.adult_comandos
 
   if (!db.data.chats[m.chat].modohorny && m.isGroup) throw tradutor.texto1;
 
   if (command == 'nsfwloli') {
-    const res = (await axios.get(`https://github.com/santiyt65/GOGETA-BOT/blob/main/src/JSON/nsfwloli.json`)).data;
+    const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/nsfwloli.json`)).data;
     const haha = await res[Math.floor(res.length * Math.random())];
     conn.sendMessage(m.chat, {image: {url: haha}, caption: `_${command}_`.trim()}, {quoted: m});
   }
@@ -88,7 +88,7 @@ const handler = async (m, {command, conn}) => {
   }
 
   if (command == 'furro') {
-    const res = (await axios.get('https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/furro.json')).data;
+    const res = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/furro.json`)).data;
     const url = await res[Math.floor(res.length * Math.random())];
     conn.sendMessage(m.chat, {image: {url: url}, caption: `_${command}_`.trim()}, {quoted: m});
   }
@@ -125,11 +125,7 @@ const handler = async (m, {command, conn}) => {
   }
 
   if (command == 'randomxxx') {
-    const rawjsonn = ['https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/tetas.json', 
-    'https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/booty.json', 
-    'https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/imagenlesbians.json',
-    'https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/panties.json', 
-    'https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/porno.json'];
+    const rawjsonn = ['https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/tetas.json', 'https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/booty.json', 'https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/imagenlesbians.json', 'https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/panties.json', 'https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/porno.json'];
     const rawjson = await rawjsonn[Math.floor(rawjsonn.length * Math.random())];
     const res = (await axios.get(rawjson)).data;
     const url = await res[Math.floor(res.length * Math.random())];
@@ -163,7 +159,7 @@ const handler = async (m, {command, conn}) => {
   }
 
   if (command == 'yuri2') {
-    const resError = (await axios.get('https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/yuri.json')).data;
+    const resError = (await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/yuri.json`)).data;
     const res = await fetch(`https://purrbot.site/api/img/nsfw/yuri/gif`);
     const json = await res.json();
     let url = json.link;

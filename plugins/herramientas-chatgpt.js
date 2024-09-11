@@ -2,12 +2,12 @@
 /* [❗]                      [❗]                      [❗] */
 /*                                                       */
 /*       |- [ ⚠ ] - CREDITOS DEL CODIGO - [ ⚠ ] -|      */
-/*     —◉ DESAROLLADO POR santiyt65:                       */
-/*     ◉ santiyt65 (https://github.com/santiyt65)          */
-/*     ◉ Número: wa.me/542604200949                      */
+/*     —◉ DESAROLLADO POR OTOSAKA:                       */
+/*     ◉ Otosaka (https://github.com/6otosaka9)          */
+/*     ◉ Número: wa.me/51993966345                       */
 /*                                                       */
 /*     —◉ FT:                                            */
-/*     ◉ santiyt65 (https://github.com/santiyt65)  */
+/*     ◉ BrunoSobrino (https://github.com/BrunoSobrino)  */
 /*                                                       */
 /* [❗]                      [❗]                      [❗] */
 /* -------------------------------------------------------*/
@@ -23,7 +23,7 @@ const openaiii = new OpenAIApi(configuration);
 const handler = async (m, {conn, text, usedPrefix, command}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins.herramientas_chatgpt
 
   if (usedPrefix == 'a' || usedPrefix == 'A') return;
@@ -67,5 +67,5 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
    }
  }
 };
-handler.command = /^(openai|chatgpt|ia|robot|openai2|chatgpt2|ia2|robot2|gogeta|gogetabot)$/i;
+handler.command = /^(openai|chatgpt|ia|robot|openai2|chatgpt2|ia2|robot2|Mystic|MysticBot)$/i;
 export default handler;

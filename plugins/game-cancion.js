@@ -6,7 +6,7 @@ const poin = 1000;
 const handler = async (m, {conn, usedPrefix}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins.game_cancion
 
   conn.tebaklagu = conn.tebaklagu ? conn.tebaklagu : {};
@@ -15,7 +15,7 @@ const handler = async (m, {conn, usedPrefix}) => {
     conn.reply(m.chat, tradutor.texto1, conn.tebaklagu[id][0]);
     throw false;
   } // 5LTV57azwaid7dXfz5fzJu
-  const res = await fetchJson(``);
+  const res = await fetchJson(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/tebaklagu.json`);
   const json = res[Math.floor(Math.random() * res.length)];
   const caption = `
 ${tradutor.texto2[0]}

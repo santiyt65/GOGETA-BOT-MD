@@ -4,7 +4,7 @@
 
 /* Bot: https://github.com/Gatito-kw/nekobot-md */
 
-import {WAMessageStubType} from '@whiskeysockets/baileys';
+import {WAMessageStubType} from "baileys";
 import fetch from 'node-fetch';
 
  // Para configurar o idioma, na raiz do projeto altere o arquivo config.json
@@ -14,13 +14,13 @@ import fetch from 'node-fetch';
 export async function before(m, {conn, participants}) {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins._detectevents
 
   if (!m.messageStubType || !m.isGroup) return !0;
   const groupName = (await conn.groupMetadata(m.chat)).subject;
   const groupAdmins = participants.filter((p) => p.admin);
-  const pp = await conn.profilePictureUrl(m.chat, 'image').catch((_) => null) || 'https://github.com/santiyt65/GOGETA-BOT/blob/main/src/avatar_contact.png';
+  const pp = await conn.profilePictureUrl(m.chat, 'image').catch((_) => null) || 'https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/avatar_contact.png';
   const img = await (await fetch(pp)).buffer();
   const chat = global.db.data.chats[m.chat];
   const mentionsString = [m.sender, m.messageStubParameters[0], ...groupAdmins.map((v) => v.id)];

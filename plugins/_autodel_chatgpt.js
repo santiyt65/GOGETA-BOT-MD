@@ -1,31 +1,52 @@
-const {downloadContentFromMessage} = (await import('@whiskeysockets/baileys'));
- // Para configurar o idioma, na raiz do projeto altere o arquivo config.json
-  // Para configurar el idioma, en la raíz del proyecto, modifique el archivo config.json.
-  // To set the language, in the root of the project, modify the config.json file.
+const INACTIVITY_TIMEOUT_MS = 30 * 60 * 1000;
 
+async function deleteInactiveUserData(m) {
+  const user = global.chatgpt.data.users[m.sender];
+  if (!user) return; // Si no existe el usuario, no hace nada
 
-export async function before(m, {isAdmin, isBotAdmin}) {
-  const datas = global
-  const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
-  const tradutor = _translate.plugins._antiviewonce
-  
-  const chat = db.data.chats[m.chat];
-  if (/^[.~#/\$,](read)?viewonce/.test(m.text)) return;
-  if (!chat?.antiviewonce || chat?.isBanned) return;
-  if (m.mtype == 'viewOnceMessageV2') {
-    const msg = m.message.viewOnceMessageV2.message;
-    const type = Object.keys(msg)[0];
-    const media = await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : 'video');
-    let buffer = Buffer.from([]);
-    for await (const chunk of media) {
-      buffer = Buffer.concat([buffer, chunk]);
-    }
-    const cap = tradutor.texto1
-    if (/video/.test(type)) {
-      return mconn.conn.sendFile(m.chat, buffer, 'error.mp4', `${msg[type].caption ? msg[type].caption + '\n\n' + cap : cap}`, m);
-    } else if (/image/.test(type)) {
-      return mconn.conn.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption ? msg[type].caption + '\n\n' + cap : cap}`, m);
-    }
+  const lastUpdateTime = user.lastUpdate || 0;
+  const currentTime = new Date().getTime();
+
+  if (currentTime - lastUpdateTime > INACTIVITY_TIMEOUT_MS) {
+    delete global.chatgpt.data.users[m.sender];
+    // console.log(`Datos del usuario ${m.sender} eliminados después de ${INACTIVITY_TIMEOUT_MS / 1000 / 60} minutos de inactividad.`);
   }
 }
+
+export async function all(m) {
+  const user = global.chatgpt.data.users[m.sender];
+
+  if (user) {
+    user.lastUpdate = new Date().getTime();
+    global.chatgpt.data.users[m.sender] = user;
+  } else {
+    return; // Si no existe el usuario, no hace nada
+  }
+
+  setTimeout(() => deleteInactiveUserData(m), INACTIVITY_TIMEOUT_MS);
+}
+
+/* const INACTIVITY_TIMEOUT_MS = 30 * 60 * 1000;
+
+async function deleteInactiveUserData(m) {
+  const user = global.chatgpt.data.users[m.sender];
+  const lastUpdateTime = user?.lastUpdate || 0;
+  const currentTime = new Date().getTime();
+
+  if (currentTime - lastUpdateTime > INACTIVITY_TIMEOUT_MS) {
+    delete global.chatgpt.data.users[m.sender];
+    //console.log(`Datos del usuario ${m.sender} eliminados después de ${INACTIVITY_TIMEOUT_MS / 1000 / 60} minutos de inactividad.`);
+  }
+}
+
+export async function all(m) {
+  let user = global.chatgpt.data.users[m.sender];
+
+  if (user) {
+    user.lastUpdate = new Date().getTime();
+    global.chatgpt.data.users[m.sender] = user;
+  }
+
+  setTimeout(() => deleteInactiveUserData(m), INACTIVITY_TIMEOUT_MS);
+
+}*/

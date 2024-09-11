@@ -1,14 +1,21 @@
-import fg from 'api-dylux';
 import axios from 'axios';
 import cheerio from 'cheerio';
-import {tiktok} from '@xct007/frieren-scraper';
-import {generateWAMessageFromContent} from '@whiskeysockets/baileys';
+import {generateWAMessageFromContent} from "baileys";
 import {tiktokdl} from '@bochilteam/scraper';
+
+let tiktok;
+import('@xct007/frieren-scraper')
+  .then((module) => {
+    tiktok = module.tiktok;
+  })
+  .catch((error) => {
+    console.error('No se pudo importar "@xct007/frieren-scraper".');
+  });
 
 const handler = async (m, {conn, text, args, usedPrefix, command}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins.descargas_tiktok
 
 
@@ -18,7 +25,7 @@ const handler = async (m, {conn, text, args, usedPrefix, command}) => {
   // let buttons = [{ buttonText: { displayText: '♫ 𝙰𝚄𝙳𝙸𝙾 ♫' }, buttonId: `${usedPrefix}tomp3` }]
   try {
     const aa = {quoted: m, userJid: conn.user.jid};
-    const prep = generateWAMessageFromContent(m.chat, {extendedTextMessage: {text: texto, contextInfo: {externalAdReply: {title: 'ᴛʜᴇ ᴍʏsᴛɪᴄ - ʙᴏᴛ', body: null, thumbnail: imagen1, sourceUrl: 'https://github.com/santiyt65/GOGETA-BOT'}, mentionedJid: [m.sender]}}}, aa);
+    const prep = generateWAMessageFromContent(m.chat, {extendedTextMessage: {text: texto, contextInfo: {externalAdReply: {title: 'ᴛʜᴇ ᴍʏsᴛɪᴄ - ʙᴏᴛ', body: null, thumbnail: imagen1, sourceUrl: 'https://github.com/BrunoSobrino/TheMystic-Bot-MD'}, mentionedJid: [m.sender]}}}, aa);
     await conn.relayMessage(m.chat, prep.message, {messageId: prep.key.id, mentions: [m.sender]});
     const dataFn = await conn.getFile(`${global.MyApiRestBaseUrl}/api/tiktokv2?url=${args[0]}&apikey=${global.MyApiRestApikey}`);
     const desc1n = `${tradutor.texto4[0]} _${usedPrefix}tomp3_ ${tradutor.texto4[1]}`;
@@ -26,7 +33,7 @@ const handler = async (m, {conn, text, args, usedPrefix, command}) => {
   } catch (ee1) {
   try {
     //const aa = {quoted: m, userJid: conn.user.jid};
-    //const prep = generateWAMessageFromContent(m.chat, {extendedTextMessage: {text: texto, contextInfo: {externalAdReply: {title: 'ᴛʜᴇ ᴍʏsᴛɪᴄ - ʙᴏᴛ', body: null, thumbnail: imagen1, sourceUrl: 'https://github.com/santiyt65/GOGETA-BOT'}, mentionedJid: [m.sender]}}}, aa);
+    //const prep = generateWAMessageFromContent(m.chat, {extendedTextMessage: {text: texto, contextInfo: {externalAdReply: {title: 'ᴛʜᴇ ᴍʏsᴛɪᴄ - ʙᴏᴛ', body: null, thumbnail: imagen1, sourceUrl: 'https://github.com/BrunoSobrino/TheMystic-Bot-MD'}, mentionedJid: [m.sender]}}}, aa);
     //await conn.relayMessage(m.chat, prep.message, {messageId: prep.key.id, mentions: [m.sender]});
     const dataF = await tiktok.v1(args[0]);
     // let desc1 =  `*𝙽𝙸𝙲𝙺𝙽𝙰𝙼𝙴:* ${dataF.nickname || 'Indefinido'}`
@@ -39,12 +46,6 @@ const handler = async (m, {conn, text, args, usedPrefix, command}) => {
       const desc2 = `${tradutor.texto6[0]} _${usedPrefix}tomp3_ ${tradutor.texto6[1]}`;
       await conn.sendMessage(m.chat, {video: {url: tTiktok.video}, caption: desc2}, {quoted: m});
     } catch (e2) {
-      try {
-        const p = await fg.tiktok(args[0]);
-        // let te = `*𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴:* ${p.author || 'Indefinido'}`
-        const te = `${tradutor.texto7[0]} _${usedPrefix}tomp3_ ${tradutor.texto7[1]}`;
-        await conn.sendMessage(m.chat, {video: {url: p.nowm}, caption: te}, {quoted: m});
-      } catch (e3) {
         try {
           const {author: {nickname}, video, description} = await tiktokdl(args[0]);
           const url = video.no_watermark2 || video.no_watermark || 'https://tikcdn.net' + video.no_watermark_raw || video.no_watermark_hd;
@@ -53,7 +54,6 @@ const handler = async (m, {conn, text, args, usedPrefix, command}) => {
           await conn.sendMessage(m.chat, {video: {url: url}, caption: cap}, {quoted: m});
         } catch {
           throw `${tradutor.texto9}`;
-          }
         }
       }
     }

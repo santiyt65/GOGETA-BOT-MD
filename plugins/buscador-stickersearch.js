@@ -1,4 +1,4 @@
-/* By https://github.com/santiyt65 */
+/* By https://github.com/ALBERTO9883 */
 import fs from 'fs';
 import fetch from 'node-fetch';
 import {googleImage} from '@bochilteam/scraper';
@@ -7,7 +7,7 @@ import {googleImage} from '@bochilteam/scraper';
 const handler = async (m, {text, usedPrefix, command, conn}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins.buscador_stickersearch
 
   try {

@@ -1,10 +1,23 @@
+/*//////////////////////////////////////////////
+
+        [ ❗ ] CREDITOS - NO MODIFICAR [ ❗ ]
+
+           Codigo hecho por @BrunoSobrino
+       Github: https://github.com/BrunoSobrino
+       
+       Nota: Solo hay disponibles efectos en
+       ingles, por lo que el texto en otros
+       idiomas puede sonar raro.
+       
+//////////////////////////////////////////////*/
+
 import axios from 'axios';
 import fetch from 'node-fetch';
 
 const handler = async (m, { conn, usedPrefix, command, text, args }) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins.convertidor_tts2
 
 

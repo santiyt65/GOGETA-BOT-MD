@@ -1,5 +1,16 @@
+/*
+
+- Agradecimiento a la comunidad de "WSApp • Developers"
+ * https://chat.whatsapp.com/FaQunmlp9BmDRk6lEEc9FJ
+- Agradecimiento especial a Carlos (PT) por los codigos de interactiveMessage (botones)
+- Agradecimiento a Darlyn1234 por la estructura de uso en este codigo y quoted
+ * https://github.com/darlyn1234
+- Adaptacion de imagen en tipo lista, codigo y funcionamiento por BrunoSobrino
+ * https://github.com/BrunoSobrino
+
+*/
 import fetch from 'node-fetch';
-import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys';
+import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from "baileys";
 
 let data;
 let buff;
@@ -14,7 +25,7 @@ let enviando = false;
 const handler = async (m, { command, usedPrefix, conn, text }) => {
   const datas = global;
   const idioma = datas.db.data.users[m.sender].language;
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`));
+  const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`));
   const tradutor = _translate.plugins.descargas_play_v2;
   device = await getDevice(m.key.id);
 

@@ -1,11 +1,11 @@
-//CREADO POR @santiyt65
+//CREADO POR @gata_dios
 
 let fila, columna, sopaNube, sopaPalabra, sopaDir, userSP, cambioLetra, diamante = null
 let intentos = 0
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     const datas = global
     const idioma = datas.db.data.users[m.sender].language
-    const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
+    const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
     const tradutor = _translate.plugins.game_sopa_de_letras
 
 

@@ -7,7 +7,7 @@ import fs from 'fs';
 const handler = async (m, { conn, text, usedPrefix, command }) => {
     const datas = global;
     const idioma = datas.db.data.users[m.sender].language;
-    const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`));
+    const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`));
     const tradutor = _translate.plugins.buscador_lyrics;
     const teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : '';
     if (!teks) throw `*${tradutor.texto1} ${usedPrefix + command} beret ojala*`;
@@ -54,15 +54,15 @@ handler.tags = ['internet'];
 handler.command = /^(lirik|lyrics|lyric|letra)$/i;
 export default handler;
 
-/* Creditos:  */
+/* Creditos: https://github.com/darlyn1234 */
 async function searchLyrics(term) {
   try {
     if (!term) return "🟥 Provide the name of the song to search the lyrics";
-    const geniusResponse = await axios.get(`https://letra-lime.vercel.app/genius?query=${term}`);
+    const geniusResponse = await axios.get(`https://apilyrics.vercel.app/genius?query=${term}`);
     const geniusData = geniusResponse.data;
     if (!geniusData.length) return `🟨 Couldn't find any lyrics for "${term}"`;
     const lyricsUrl = geniusData[0].url;
-    const lyricsResponse = await axios.get(`https://letra-lime.vercel.app/lyrics?url=${lyricsUrl}`);
+    const lyricsResponse = await axios.get(`https://apilyrics.vercel.app/lyrics?url=${lyricsUrl}`);
     const result = {
       status: '200',
       creador: 'Sareth',

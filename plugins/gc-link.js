@@ -1,10 +1,10 @@
 import fs from 'fs';
-import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys';
+import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from "baileys";
 
 const handler = async (m, {conn, args}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
   const tradutor = _translate.plugins.gc_link
 
   let ppgc;
@@ -53,8 +53,8 @@ const handler = async (m, {conn, args}) => {
            contextInfo: {externalAdReply: {mediaUrl: null, mediaType: 1, description: null,
            title: tradutor.texto1[0],
            body: '𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝',
-           previewType: 0, thumbnail: fs.readFileSync('./Menu2.jpg'),
-           sourceUrl: ``}
+           previewType: 0, thumbnail: fs.readFileSync('./src/assets/images/menu/languages/es/menu.png'),
+           sourceUrl: `https://github.com/BrunoSobrino/TheMystic-Bot-MD`}
            }
         }
       );  
