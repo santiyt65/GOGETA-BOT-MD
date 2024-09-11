@@ -2,7 +2,7 @@
   "name": "gogeta-bot",
   "version": "1.0.0",
   "description": "GOGET-BOT",
-  "main": "server.js",
+ "main": "index.js",
   "type": "module",
   "directories": {
     "lib": "lib",
@@ -97,8 +97,8 @@
     "ytdl-core": "github:khlevon/node-ytdl-core#v4.11.4-patch.2"
   },
   "optionalDependencies": {
-    "@xct007/frieren-scraper": "github:xct007/frieren-scraper",
-   "wa-sticker-formatter": "^4.3.2"
+    "@xct007/frieren-scraper": "github:BrunoSobrino/frieren-scraper",
+    "wa-sticker-formatter": "^4.3.2"
   },
   "devDependencies": {
     "eslint": "^8.45.0",
